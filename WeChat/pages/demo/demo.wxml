@@ -1,0 +1,31 @@
+<!--demo.wxml-->
+<view class="wrap">
+	<text bindTab="test">我的计划</text>	
+	<view class="planList">
+		<checkbox-group class="list">
+		<!-- 这里用label显示内容，for循环写法 wx:for-items 默认item为每一项 -->
+		    <label wx:for="{{list}}">
+		    <!-- value值和默认选中状态都是通过数据绑定在js中的 -->
+		        <checkbox name="list-item" checked="{{item.checked}}"/>{{item.content}}
+		    </label>
+		</checkbox-group>
+		<view class="input-box" wx:if="{{inputPlanShow}}">
+			<checkbox name="list-item"/>
+			<input type="text" placeholder="请输入计划" bindchange="savePlan"/>
+		</view>
+	</view>
+	<button bindtap="creatType">+ 添加计划</button>
+	<!-- action-sheet -->
+	<action-sheet hidden="{{creatTypeHidden}}" bindchange="creatTypeChange">
+	  <block wx:for="{{creatType}}">
+	    <action-sheet-item bindtap="creatTypeItem" data-id="creatType{{index}}">{{item}}</action-sheet-item>
+	  </block>
+	  <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+	</action-sheet>
+	<!-- tab区 -->
+  <view class="tab">
+    <view>我的计划</view>
+    <view>备用</view>
+  </view>
+  
+</view>

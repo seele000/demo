@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">TODO-list</text>
+  </view>
+  <!--跳转标签：redirect="true"(关闭当前页)-->
+  <navigator class="usermotto" url="../demo/demo">
+    <text class="user-motto">点击进入...</text>
+  </navigator>
+
+  <!--跳转指令：bindTab="指令名"，js控制-->
+  <!--
+  <view bindtap="tabEnter" class="usermotto">
+    <text class="user-motto">点击进入</text>
+  </view>
+  -->
+</view>
